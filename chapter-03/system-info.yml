@@ -1,0 +1,11 @@
+# Chapter-03/system-info.yml
+
+- name: Collect System Information
+  hosts: web
+  become: true
+  vars:
+    report_admin_email: vinayaksingoriya@gmail.com
+  tasks:
+    - name: Generate System Report
+      include_role: 
+        name: system-report
