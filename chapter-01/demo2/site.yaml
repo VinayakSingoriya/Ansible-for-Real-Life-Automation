@@ -1,0 +1,9 @@
+---
+- name: Install vim package
+  hosts: node1
+  become: true
+  tasks: 
+    - name: To Ensure vim package is installed
+      apt:
+        name: vim
+        state: absent
