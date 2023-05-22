@@ -1,0 +1,30 @@
+---
+# Chapter-02/install-package.yaml
+- name: Ansible Demo
+  hosts: node1
+  become: true
+  tasks:
+    - name: Update apt Cache
+      apt:
+        update_cache: true
+
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+
+    # - name: Remove nginx
+    #   become: yes
+    #   apt:
+    #     name: nginx
+    #     autoremove: yes
+    #     state: absent
+
+    - name: Copy nginx congiguration
+      copy:
+        src: ./index.html
+        dest: /var/www/html/
+        mode: '0644'
+
+
+
